@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const notoSans = Noto_Sans({ variable: "--font-sans" });
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${notoSans.variable} ${jetbrainsMono.variable} dark`}
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
