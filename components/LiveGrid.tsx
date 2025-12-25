@@ -252,7 +252,7 @@ export default function LiveGrid() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="p-8 max-w-4xl mx-auto relative min-h-screen cursor-none"
+      className="p-4 sm:p-6 md:p-8 max-w-6xl mx-auto relative min-h-screen cursor-none"
     >
       {/* My Cursor (Direct DOM) */}
       {myIdentity && (
@@ -284,8 +284,8 @@ export default function LiveGrid() {
           )
       )}
 
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold text-foreground">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8">
+        <h1 className="text-xl sm:text-2xl font-bold text-foreground">
           LiveGrid{" "}
           <span className="text-xs text-primary-foreground bg-primary px-2 py-1 rounded-full">
             Real-time
@@ -308,7 +308,7 @@ export default function LiveGrid() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
         {labels.map((label) => {
           const editor = editing[label];
           const isBeingEdited = !!editor;
@@ -321,7 +321,7 @@ export default function LiveGrid() {
                 onChange={(e) => handleChange(label, e.target.value)}
                 onBlur={(e) => handleBlur(label, e.target.value)}
                 onFocus={() => handleFocus(label)}
-                className={`w-full h-24 text-center text-lg border-2 rounded-lg transition-all outline-none cursor-none bg-card text-card-foreground
+                className={`w-full h-20 sm:h-24 md:h-28 text-center text-base sm:text-lg border-2 rounded-lg transition-all outline-none cursor-none bg-card text-card-foreground
                     ${
                       isBeingEdited
                         ? "border-[3px] animate-pulse"
@@ -348,7 +348,7 @@ export default function LiveGrid() {
         })}
       </div>
 
-      <div className="mt-8 text-sm text-muted-foreground text-center">
+      <div className="mt-6 sm:mt-8 text-xs sm:text-sm text-muted-foreground text-center px-4">
         Type in a cell to see updates. Focus a cell to show others you are
         editing. Move your mouse to show your cursor.
       </div>
